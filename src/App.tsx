@@ -163,7 +163,9 @@ function App() {
               <Button variant="warning">Warning</Button>
               <Button variant="destructive">Destructive</Button>
               <Button variant="link" asChild>
-                <a href="#">Pixel Link</a>
+                <a href="#" className="!text-blue-400">
+                  Pixel Link
+                </a>
               </Button>
             </div>
           </Container>
@@ -419,11 +421,7 @@ function App() {
               <h3 className="font-normal text-lg">Calendar</h3>
               <p className="text-sm">Date picker</p>
             </div>
-            <Calendar
-              mode="single"
-              selected={new Date()}
-              className="rounded-md border"
-            />
+            <Calendar mode="single" selected={new Date()} />
           </Container>
 
           {/* Carousel */}
