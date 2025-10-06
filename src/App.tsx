@@ -58,6 +58,52 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/pixelact-ui/collapsible";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/pixelact-ui/dialog";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/pixelact-ui/hover-card";
+import { Input } from "@/components/ui/pixelact-ui/input";
+import { Label } from "@/components/ui/pixelact-ui/label";
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarSub,
+  MenubarSubContent,
+  MenubarSubTrigger,
+  MenubarTrigger,
+} from "@/components/ui/pixelact-ui/menubar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/pixelact-ui/popover";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/pixelact-ui/select";
+import { Textarea } from "@/components/ui/pixelact-ui/textarea";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/pixelact-ui/tooltip";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -65,10 +111,10 @@ function App() {
     <div className="min-h-screen bg-background text-foreground p-6">
       <div className="mx-auto max-w-6xl space-y-8">
         <header className="text-center space-y-2">
-          <h1 className="text-3xl font-bold tracking-tight">
+          <h1 className="text-3xl font-normal">
             Pixelact + shadcn/ui Showcase
           </h1>
-          <p className="text-muted-foreground">
+          <p className="text-white/75">
             React + Vite + Tailwind v4 with Pixelact components
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
@@ -84,6 +130,37 @@ function App() {
         </header>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {/* Typography (font showcase) */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Typography</CardTitle>
+              <CardDescription>
+                Showcase of App Display and App Sans
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-5 text-left">
+              <div>
+                <div className="text-xs uppercase text-muted-foreground mb-2">
+                  Display font
+                </div>
+                <div className="font-display text-3xl">
+                  Dead Revolver Display
+                </div>
+                <p className="font-display text-xl mt-1">
+                  The quick brown fox jumps over the lazy dog 0123456789
+                </p>
+              </div>
+              <div>
+                <div className="text-xs uppercase text-muted-foreground mb-2">
+                  Sans font
+                </div>
+                <div className="font-sans text-2xl">Dead Revolver Game</div>
+                <p className="font-sans text-base mt-1">
+                  The quick brown fox jumps over the lazy dog 0123456789
+                </p>
+              </div>
+            </CardContent>
+          </Card>
           {/* Buttons (Pixelact variants) */}
           <Card>
             <CardHeader>
@@ -101,6 +178,151 @@ function App() {
                   <a href="#">Pixel Link</a>
                 </Button>
               </div>
+            </CardContent>
+          </Card>
+
+          {/* Dialog */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Dialog</CardTitle>
+              <CardDescription>Modal dialog with actions</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button>Open Dialog</Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Example Dialog</DialogTitle>
+                    <DialogDescription>
+                      Pixelact-styled dialog content.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <p className="text-sm">This is the dialog body.</p>
+                  <DialogFooter>
+                    <Button variant="secondary">Cancel</Button>
+                    <Button>Confirm</Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+            </CardContent>
+          </Card>
+
+          {/* Hover Card */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Hover Card</CardTitle>
+              <CardDescription>Content on hover</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <HoverCard>
+                <HoverCardTrigger asChild>
+                  <Button variant="secondary">Hover me</Button>
+                </HoverCardTrigger>
+                <HoverCardContent>
+                  <p className="text-sm">Extra details shown on hover.</p>
+                </HoverCardContent>
+              </HoverCard>
+            </CardContent>
+          </Card>
+
+          {/* Inputs */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Inputs</CardTitle>
+              <CardDescription>Input, Textarea, and Select</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <Label htmlFor="name">Name</Label>
+                <Input
+                  id="name"
+                  placeholder="Your name"
+                  className="w-full max-w-sm"
+                />
+              </div>
+              <div>
+                <Label htmlFor="message">Message</Label>
+                <Textarea
+                  id="message"
+                  placeholder="Your message"
+                  className="w-full max-w-sm"
+                />
+              </div>
+              <div>
+                <Label htmlFor="flavor">Favorite flavor</Label>
+                <Select>
+                  <SelectTrigger className="w-full max-w-sm">
+                    <SelectValue placeholder="Choose one" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="vanilla">Vanilla</SelectItem>
+                    <SelectItem value="chocolate">Chocolate</SelectItem>
+                    <SelectItem value="strawberry">Strawberry</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Menubar */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Menubar</CardTitle>
+              <CardDescription>App menu</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Menubar>
+                <MenubarMenu>
+                  <MenubarTrigger>File</MenubarTrigger>
+                  <MenubarContent>
+                    <MenubarItem>New Tab</MenubarItem>
+                    <MenubarItem>New Window</MenubarItem>
+                    <MenubarSeparator />
+                    <MenubarSub>
+                      <MenubarSubTrigger>Share</MenubarSubTrigger>
+                      <MenubarSubContent>
+                        <MenubarItem>Copy Link</MenubarItem>
+                        <MenubarItem>Email</MenubarItem>
+                      </MenubarSubContent>
+                    </MenubarSub>
+                  </MenubarContent>
+                </MenubarMenu>
+                <MenubarMenu>
+                  <MenubarTrigger>Edit</MenubarTrigger>
+                  <MenubarContent>
+                    <MenubarItem>Undo</MenubarItem>
+                    <MenubarItem>Redo</MenubarItem>
+                  </MenubarContent>
+                </MenubarMenu>
+              </Menubar>
+            </CardContent>
+          </Card>
+
+          {/* Popover & Tooltip */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Popover & Tooltip</CardTitle>
+              <CardDescription>Interactive overlays</CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-wrap items-center gap-3">
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button>Open Popover</Button>
+                </PopoverTrigger>
+                <PopoverContent>
+                  <p className="text-sm">This is popover content.</p>
+                </PopoverContent>
+              </Popover>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="secondary">Hover for tip</Button>
+                  </TooltipTrigger>
+                  <TooltipContent>Helpful tip here!</TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </CardContent>
           </Card>
 
@@ -267,7 +489,10 @@ function App() {
             <CardContent>
               <div className="flex items-center gap-3">
                 <Checkbox id="terms" />
-                <label htmlFor="terms" className="text-sm leading-none cursor-pointer">
+                <label
+                  htmlFor="terms"
+                  className="text-sm leading-none cursor-pointer"
+                >
                   Accept terms and conditions
                 </label>
               </div>
@@ -310,7 +535,6 @@ function App() {
               <Button>Confirm</Button>
             </CardFooter>
           </Card>
-
         </div>
       </div>
     </div>

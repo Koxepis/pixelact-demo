@@ -162,3 +162,8 @@
     font-family: var(--font-display, "App Display", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial);
   }
 }
+
+/* Utility to force display font on arbitrary elements */
+@layer utilities {
+  .font-display { font-family: var(--font-display, "App Display", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial); }
+}
