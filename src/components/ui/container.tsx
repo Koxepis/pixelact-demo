@@ -16,7 +16,7 @@ function Container({ className, disabled, variant = 'custom-container-5', ...pro
     <div
       className={cn(
         // Base
-        'm-0 p-0 relative box-border text-white rounded-[16px] overflow-hidden',
+        'm-0 p-0 relative box-border text-white rounded-[16px] overflow-visible',
         'border-[16px] border-transparent',
         '[image-rendering:pixelated]',
         // Variant: custom-container-5 (background + border-image)
